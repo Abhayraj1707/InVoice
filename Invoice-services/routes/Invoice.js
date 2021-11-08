@@ -33,6 +33,21 @@ router.get("/getInvoice",async(req,res)=>{
     }
 })
 
+router.get("/getInvoice/:id",async(req,res)=>{
+    try{
+        const invoiceData = await Invoice.find({_id: req.params.id});
+        res.status(200).json({
+            status: "success",
+            data: invoiceData
+        });
+    }catch(err){
+        res.status(500).json({
+            status: "failed",
+            data: err
+        });
+    }
+})
+
 router.delete("/deleteInvoice/:id",async(req,res)=>{
     try{
         const deletedInvoice = await Invoice.deleteOne({_id: req.params.id});
