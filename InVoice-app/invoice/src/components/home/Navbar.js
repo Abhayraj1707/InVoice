@@ -64,7 +64,7 @@ export default function Navbar(props) {
 						InVoice
 					</a>
 					<div class='d-flex flex-row-reverse'>
-						<button class='p-2' onClick={() => props.setShowHome(0)}>
+						<button class='p-2' href='/login'>
 							LOGOUT
 						</button>
 						<button class='p-2' onClick={handleOpen}>
