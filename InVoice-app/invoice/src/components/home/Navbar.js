@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Datatable from "./datatable";
 import data from "./sample.json";
 import NavTool from "./NavTool";
 import Box from "@mui/material/Box";
@@ -47,6 +46,7 @@ export default function Navbar(props) {
 	const handleChange = (event) => {
 		setStatus(event.target.value);
 	};
+
 
 	function search(rows) {
 		const columns = rows[0] && Object.keys(rows[0]);

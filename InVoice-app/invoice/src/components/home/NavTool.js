@@ -1,13 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./tabs.css";
-import data from './sample.json';
+import Datatable from "./datatable";
 
-function Tabs() {
-  const [toggleState, setToggleState] = useState("paid");
+function Tabs({ data }) {
+  const [toggleState, setToggleState] = useState("Paid");
 
   const toggleTab = (index) => {
     setToggleState(index);
   };
+
+  function payment(rows) {
+    return rows.filter((row) => row.statusH === toggleState);
+  }
+
+  useEffect(() => {}, [toggleState]);
 
   return (
     <div className="container">
@@ -31,6 +37,7 @@ function Tabs() {
           Late/Due
         </button>
       </div>
+      <Datatable data={payment(data)} />
     </div>
   );
 }
