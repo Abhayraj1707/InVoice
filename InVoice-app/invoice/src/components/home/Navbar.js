@@ -37,7 +37,7 @@ const style = {
 	p: 4,
 };
 
-export default function Navbar() {
+export default function Navbar(props) {
 	const [q, setq] = useState("");
 	const [open, setOpen] = React.useState(false);
 	const handleOpen = () => setOpen(true);
@@ -64,7 +64,9 @@ export default function Navbar() {
 						InVoice
 					</a>
 					<div class='d-flex flex-row-reverse'>
-						<button class='p-2'>LOGOUT</button>
+						<button class='p-2' onClick={() => props.setShowHome(0)}>
+							LOGOUT
+						</button>
 						<button class='p-2' onClick={handleOpen}>
 							CREATE NEW INVOICE
 						</button>
