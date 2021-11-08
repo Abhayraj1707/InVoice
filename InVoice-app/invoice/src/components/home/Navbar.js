@@ -3,7 +3,7 @@ import Datatable from "./datatable";
 import data from "./sample.json";
 import NavTool from "./NavTool";
 
-export default function Navbar() {
+export default function Navbar(props) {
   const [q, setq] = useState("");
 
   function search(rows) {
@@ -22,7 +22,7 @@ export default function Navbar() {
             InVoice
           </a>
           <div class="d-flex flex-row-reverse">
-            <button class="p-2">LOGOUT</button>
+            <button class="p-2" onClick={()=>props.setShowHome(0)} >LOGOUT</button>
             <button class="p-2">CREATE NEW INVOICE</button>
           </div>
         </div>
