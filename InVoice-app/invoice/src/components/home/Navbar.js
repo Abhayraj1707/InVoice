@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Datatable from "./datatable";
 import data from "./sample.json";
 import NavTool from "./NavTool";
 
@@ -8,7 +7,6 @@ export default function Navbar(props) {
 
   function search(rows) {
     const columns = rows[0] && Object.keys(rows[0]);
-    // columns.map((column) => console.log(column))
     return rows.filter((row) =>
       columns.some((column) => row[column].toLowerCase().indexOf(q) > -1)
     );
@@ -22,7 +20,9 @@ export default function Navbar(props) {
             InVoice
           </a>
           <div class="d-flex flex-row-reverse">
-            <button class="p-2" onClick={()=>props.setShowHome(0)} >LOGOUT</button>
+            <button class="p-2" onClick={() => props.setShowHome(0)}>
+              LOGOUT
+            </button>
             <button class="p-2">CREATE NEW INVOICE</button>
           </div>
         </div>
@@ -39,8 +39,7 @@ export default function Navbar(props) {
           Search
         </button>
       </form>
-      <NavTool data = {search(data)}/>
-      <Datatable data={search(data)} />
+      <NavTool data={search(data)} />
     </div>
   );
 }
